@@ -1,358 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MP Doors | Engineered Patio Systems</title>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            mp: {
-              orange: '#D49A55',
-              dark: '#1f2933',
-              gray: '#4b5563',
-              light: '#f9fafb',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-          },
-          animation: {
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP Doors | Patio Doors Built to Never Rot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --apple-bg: #f5f5f7;
+            --apple-text: #1d1d1f;
+            --brand-orange: #f68428;
+            --brand-orange-soft: rgba(246, 132, 40, 0.3);
+            --brand-orange-hover: #e0731d;
         }
-      }
-    }
-  </script>
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  
-  <style>
-    html { scroll-behavior: smooth; }
-    /* Hide native details marker for custom styling */
-    details > summary { list-style: none; }
-    details > summary::-webkit-details-marker { display: none; }
-  </style>
-<script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react/": "https://esm.sh/react@^19.2.4/"
-  }
-}
-</script>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: var(--apple-text);
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Liquid Glass Effect --- */
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 12px 40px 0 rgba(31, 38, 135, 0.07),
+                inset 0 0 12px rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-glow {
+            position: relative;
+        }
+        .glass-glow::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.5px; 
+            background: linear-gradient(
+                135deg, 
+                rgba(255,255,255,0.9), 
+                transparent, 
+                var(--brand-orange-soft), 
+                transparent, 
+                rgba(255,255,255,0.7)
+            );
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+        }
+        .pain-point-block {
+            height: 300px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .pain-point-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 20px;
+        }
+        .pain-point-block:hover .pain-point-inner {
+            transform: rotateY(180deg);
+        }
+        .pain-point-front, .pain-point-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border-radius: 20px;
+        }
+        .pain-point-front {
+            color: #1d1d1f;
+        }
+        .pain-point-back {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            transform: rotateY(180deg);
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .btn-brand {
+            background-color: var(--brand-orange);
+            color: white;
+            transition: all 0.2s ease;
+        }
+        .btn-brand:hover {
+            background-color: var(--brand-orange-hover);
+            transform: translateY(-1px);
+        }
+        .nav-logo { height: 32px; }
+        .footer-logo { height: 44px; filter: brightness(0) invert(1); }
+    </style>
 </head>
-<body class="font-sans text-mp-dark bg-white antialiased selection:bg-mp-orange selection:text-white">
+<body class="antialiased">
 
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-mp-orange rounded-sm"></div>
-        <span id="nav-logo-text" class="text-2xl font-bold tracking-tight text-white transition-colors">
-          MP<span class="font-light">DOORS</span>
-        </span>
-      </div>
-
-      <!-- Desktop Nav -->
-      <div id="nav-links" class="hidden md:flex items-center gap-8 font-medium text-white transition-colors">
-        <a href="#features" class="hover:text-mp-orange transition-colors">Features</a>
-        <a href="#technology" class="hover:text-mp-orange transition-colors">Technology</a>
-        <a href="#faq" class="hover:text-mp-orange transition-colors">FAQ</a>
-        <a href="#contact" class="px-5 py-2 bg-mp-orange text-white rounded hover:bg-orange-600 transition-colors">Contact</a>
-      </div>
-
-      <!-- Mobile Toggle -->
-      <button id="mobile-menu-btn" class="md:hidden text-mp-orange">
-        <i data-lucide="menu" class="w-7 h-7"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg p-6 flex flex-col gap-4 md:hidden border-t border-gray-100">
-      <a href="#features" class="text-mp-dark font-medium mobile-link">Features</a>
-      <a href="#technology" class="text-mp-dark font-medium mobile-link">Technology</a>
-      <a href="#faq" class="text-mp-dark font-medium mobile-link">FAQ</a>
-      <a href="#contact" class="text-mp-orange font-bold mobile-link">Contact Us</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="relative w-full h-screen min-h-[600px] flex items-center">
-    <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2700&auto=format&fit=crop" alt="Modern Patio Door" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-black/20"></div>
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-20">
-      <div class="bg-mp-orange/90 backdrop-blur-sm p-8 md:p-12 max-w-2xl text-white shadow-xl animate-fade-in-up">
-        <span class="uppercase tracking-widest text-sm font-bold mb-4 block border-l-4 border-white pl-3">Engineered Systems</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6">An open door to quality and craftsmanship.</h1>
-        <p class="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">Patio door systems engineered to stay aligned, sealed, and smooth—year after year. Say goodbye to leaks and sticking panels.</p>
-        <button class="group flex items-center gap-2 bg-white text-mp-orange font-bold py-3 px-8 rounded hover:bg-gray-100 transition-colors">
-          Discover the Difference
-          <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Problem Section -->
-  <section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-6">Does Your Patio Door Leak, Stick, or Feel Harder to Use Every Year?</h2>
-      <div class="w-24 h-1 bg-mp-orange mx-auto mb-8"></div>
-      <p class="text-lg md:text-xl text-mp-gray leading-relaxed">Most patio door problems don’t appear right away. They develop gradually—after seasons of rain, temperature swings, and everyday use. Water at the sill, uneven sliding, and drafts are usually signs of a door that was never designed as a complete system.</p>
-    </div>
-  </section>
-
-  <!-- Dark Features -->
-  <section id="technology" class="bg-mp-dark text-white py-24">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-16">
-      <div class="lg:w-1/2">
-        <span class="text-mp-orange font-bold tracking-widest uppercase mb-2 block">The MP Difference</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-8 font-serif leading-tight">Engineered as integrated systems, not collections of parts.</h2>
-        <p class="text-gray-300 text-lg mb-8 leading-relaxed">MP Doors patio doors are distinct because panels, frames, hardware, weather protection, and glass are designed, tested, and assembled to work together—so performance holds up long after installation.</p>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Composite or fiberglass construction where moisture resistance matters most</span></li>
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Factory-assembled, pre-hung systems</span></li>
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Designed for large openings and heavy glass panels</span></li>
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Energy-efficient glass options built into the system</span></li>
-        </ul>
-      </div>
-      <div class="lg:w-1/2 relative">
-        <div class="relative rounded-lg overflow-hidden shadow-2xl">
-          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop" alt="Detailed Door Construction" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" />
-          <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur text-mp-dark p-6 rounded shadow-lg border-l-4 border-mp-orange">
-            <h4 class="font-bold text-lg mb-1">System Integrity</h4>
-            <p class="text-sm text-gray-600">Pre-hung in factory environments for perfect alignment.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Grid -->
-  <section id="features" class="py-24 bg-mp-light">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-4">Core System Features</h2>
-        <p class="text-mp-gray max-w-2xl mx-auto">Every component is selected to contribute to a lifetime of seamless operation.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="droplets" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Waterproof Composite Construction</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Non-porous composite components resist moisture absorption, helping prevent swelling, rot, and long-term frame degradation.</p>
-        </div>
-        <!-- Feature 2 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="ruler" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Engineered for Large Openings</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Designed to maintain alignment and smooth operation across wide spans and heavy insulated glass panels.</p>
-        </div>
-        <!-- Feature 3 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="move-horizontal" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Smooth, Controlled Sliding</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Adjustable stainless-steel rollers and balanced system design support predictable daily operation.</p>
-        </div>
-        <!-- Feature 4 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="factory" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Factory-Assembled Systems</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Built in controlled environments to reduce installation variability and improve long-term consistency.</p>
-        </div>
-        <!-- Feature 5 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="zap" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Energy Performance Built In</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Low-E glass, Argon gas, and ENERGY STAR® configurations help reduce drafts and heat transfer at large openings.</p>
-        </div>
-        <!-- Feature CTA -->
-        <div class="bg-mp-dark p-8 rounded-lg shadow-sm flex flex-col justify-center items-center text-center">
-           <h3 class="text-xl font-bold text-white mb-3">Ready to upgrade?</h3>
-           <p class="text-gray-300 mb-6 text-sm">Experience the difference of a complete system.</p>
-           <button class="bg-mp-orange text-white px-6 py-2 rounded font-medium hover:bg-orange-600 transition-colors w-full">View Catalog</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-12 text-center">Patio Door FAQs</h2>
-      <div class="space-y-4">
-        <!-- FAQ 1 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Will MP Doors patio doors rot or swell over time?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              No. Composite construction does not absorb moisture, helping the door maintain alignment and sealing through seasonal changes.
+    <!-- Navbar -->
+    <nav class="glass-nav fixed top-0 w-full z-50">
+        <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+            <img src="MPDoors_Logo.png" alt="MP Doors" class="nav-logo">
+            <div class="flex space-x-8 text-[10px] font-bold uppercase tracking-[0.15em]">
+                <a href="#characteristics" class="hover:text-[var(--brand-orange)] transition">Characteristics</a>
+                <a href="#problems" class="hover:text-[var(--brand-orange)] transition">Solutions</a>
+                <a href="#faq" class="hover:text-[var(--brand-orange)] transition">FAQ</a>
+                <a href="#cta" class="btn-brand px-5 py-2 rounded-full transition shadow-sm">Shop Now</a>
             </div>
-          </details>
         </div>
-        <!-- FAQ 2 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Are MP Doors patio doors energy efficient?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              Yes. Many configurations include double-pane Low-E glass with Argon gas and ENERGY STAR® certification where applicable.
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient pt-40 pb-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                Patio Doors Built to <span class="text-gray-400">Never Rot, Warp, or Stick.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Experience the durability of 100% waterproof composite frames. Engineered for smooth operation and lifetime performance.
+            </p>
+        </div>
+    </header>
+
+    <!-- Opening Hook -->
+    <section class="py-24 px-6 max-w-5xl mx-auto border-t border-gray-100">
+        <div class="grid md:grid-cols-5 gap-12 items-start">
+            <div class="md:col-span-3">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight serif">Does water seep under your patio door after every rain?</h2>
+                <p class="text-xl text-gray-600 leading-relaxed mb-6 font-light">
+                    Trapped moisture in the bottom rail is the "silent killer" of patio doors. While traditional wood, vinyl, and steel inevitably swell, warp, or corrode, MP Doors solves this at the molecular level.
+                </p>
             </div>
-          </details>
-        </div>
-        <!-- FAQ 3 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Are these doors designed for large patio openings?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              Yes. MP Doors patio systems are engineered to support wide spans and heavy glass panels without sacrificing smooth operation.
+            <div class="md:col-span-2 liquid-glass glass-glow p-8 rounded-[24px] shadow-sm">
+                <div class="text-[var(--brand-orange)] font-bold text-xs uppercase tracking-widest mb-4">The MP Difference</div>
+                <p class="text-lg font-medium leading-relaxed text-black">
+                    Our full composite frames <span class="text-[var(--brand-orange)]">cannot absorb water.</span> We eliminate the root cause of failure to ensure smooth operation for 20+ years.
+                </p>
             </div>
-          </details>
         </div>
-        <!-- FAQ 4 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Are MP Doors patio doors factory assembled?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              Yes. Doors are assembled in controlled factory environments and delivered as pre-hung systems to reduce installation risk.
+    </section>
+
+    <!-- Product Characteristics -->
+    <section id="characteristics" class="py-24 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center justify-between mb-16">
+                <h2 class="text-4xl font-bold serif">Product Characteristics</h2>
+                <div class="h-px flex-grow ml-8 bg-gray-200"></div>
             </div>
-          </details>
-        </div>
-        <!-- FAQ 5 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Where can I purchase MP Doors patio doors?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              MP Doors patio doors are available nationwide through The Home Depot, including measurement and installation services.
+            
+            <div class="space-y-0">
+                <!-- Characteristic 1 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">01</span>
+                        <h3 class="text-2xl font-bold serif">100% Waterproof Composite Frame</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Non-porous composite material prevents moisture absorption that causes wood rot and vinyl warping. Tested to ASTM D143: less than 0.1% water absorption vs. 15-20% for wood. Bottom rail—where most doors fail—stays structurally sound through decades of rain exposure.</p>
+                </div>
+
+                <!-- Characteristic 2 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">02</span>
+                        <h3 class="text-2xl font-bold serif">Hydroshield Protection System</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Engineered water management at every vulnerable point: integrated drainage channels, composite sill that won't absorb moisture, advanced weatherstripping, and sealed construction. Protects against the pooling water and driven rain that destroy traditional doors in coastal and high-humidity climates.</p>
+                </div>
+
+                <!-- Characteristic 3 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">03</span>
+                        <h3 class="text-2xl font-bold serif">Smooth-Glide Stainless Steel Rollers</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Heavy-duty stainless steel rollers with sealed ball bearings support 200+ lb insulated glass panels. Rated for 50,000+ cycles (35 years of daily use). Adjustable for precise leveling. Budget doors use plastic rollers that fail within 5,000 cycles.</p>
+                </div>
+
+                <!-- Characteristic 4 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">04</span>
+                        <h3 class="text-2xl font-bold serif">Energy-Efficient Low-E Glass + Argon Fill</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Dual-pane Low-E glass with argon gas reduces heat transfer by 40% vs. standard glass. ENERGY STAR certified for all U.S. climate zones. Large door openings (60-96 inches) magnify energy loss—proper glass makes a measurable difference in heating and cooling costs.</p>
+                </div>
+
+                <!-- Characteristic 5 -->
+                <div class="border-t border-gray-100 py-10 border-b">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">05</span>
+                        <h3 class="text-2xl font-bold serif">Factory-Assembled Pre-Hung System</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Complete door assembled and tested in controlled factory environment before shipping. Reduces installation errors that cause 70% of premature door failures. Professional installers complete standard replacements in 4-6 hours vs. 8-12 hours for field-assembled systems.</p>
+                </div>
             </div>
-          </details>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Closing -->
-  <section class="relative py-24 bg-mp-dark text-white overflow-hidden">
-    <div class="absolute top-0 right-0 w-64 h-64 bg-mp-orange opacity-10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-mp-orange opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+    <!-- Pain Points (痛點) -->
+    <section id="problems" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center serif">Common Problems Solved</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Pain Point 1 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"My patio door gets harder to slide every year"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Frame warping from moisture or heat causes misalignment. Composite frames maintain dimensional stability—the door that slides smoothly on day one still slides smoothly after 10 years of weather exposure.</p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Choose a Patio Door Designed for Long-Term Ownership</h2>
-      <p class="text-xl text-gray-300 mb-10 leading-relaxed">MP Doors patio door systems are built for homeowners who value predictable performance, reduced maintenance, and confidence that the system was engineered as one—from the start.</p>
-      <button class="bg-mp-orange hover:bg-white hover:text-mp-orange text-white font-bold py-4 px-10 rounded text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-        Explore Styles at Home Depot
-      </button>
-    </div>
-  </section>
+            <!-- Pain Point 2 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"Water leaks under my door during storms"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Compromised weatherstripping and porous frame materials. Hydroshield technology with composite construction prevents water infiltration at the source, protecting your flooring and subfloor from damage.</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Footer -->
-  <footer class="bg-black text-gray-500 py-12 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-2">
-         <div class="w-6 h-6 bg-mp-orange rounded-sm opacity-80"></div>
-         <span class="text-white font-bold tracking-tight">MP<span class="font-light">DOORS</span></span>
-      </div>
-      <div class="text-sm">&copy; 2024 MP Doors. All rights reserved.</div>
-      <div class="flex gap-6 text-sm">
-        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-        <a href="#" class="hover:text-white transition-colors">Contact</a>
-      </div>
-    </div>
-  </footer>
+            <!-- Pain Point 3 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"My energy bills spike when I heat or cool"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Air infiltration through poor seals and heat transfer through low-quality glass. Low-E + argon glass combined with tight-sealing composite frames reduces energy loss by 40%, saving $150-500 annually depending on climate.</p>
+                    </div>
+                </div>
+            </div>
 
-  <script>
-    // Initialize Icons
-    lucide.createIcons();
+            <!-- Pain Point 4 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"I'm replacing a failed door and don't want to make the same mistake"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Wood and vinyl doors fail predictably in moisture-rich environments. Composite frames are engineered specifically to solve the problems that destroyed your last door—backed by lifetime warranty on materials.</p>
+                    </div>
+                </div>
+            </div>
 
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    const navLogoText = document.getElementById('nav-logo-text');
-    const navLinks = document.getElementById('nav-links');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+        </div>
+    </section>
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        navbar.classList.add('bg-white', 'shadow-md', 'py-4');
-        navbar.classList.remove('bg-transparent', 'py-6');
-        
-        navLogoText.classList.remove('text-white');
-        navLogoText.classList.add('text-mp-dark');
-        
-        navLinks.classList.remove('text-white');
-        navLinks.classList.add('text-mp-dark');
-      } else {
-        navbar.classList.remove('bg-white', 'shadow-md', 'py-4');
-        navbar.classList.add('bg-transparent', 'py-6');
-        
-        navLogoText.classList.add('text-white');
-        navLogoText.classList.remove('text-mp-dark');
-        
-        navLinks.classList.add('text-white');
-        navLinks.classList.remove('text-mp-dark');
-      }
-    });
+    <!-- Product Showcase -->
+    <section class="py-24 bg-[#f5f5f7] px-6">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <h2 class="text-4xl font-bold text-center mb-16 serif">Browse Patio Door Models</h2>
+            
+            <div class="liquid-glass glass-glow rounded-[32px] p-12 shadow-sm overflow-hidden flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="inline-block px-3 py-1 bg-white/50 text-[var(--brand-orange)] text-[10px] font-bold rounded-full mb-4 uppercase tracking-widest">Most Popular</div>
+                    <h3 class="text-4xl font-bold mb-6 serif">72 in. x 80 in. Composite Sliding Patio Door</h3>
+                    <ul class="space-y-4 text-gray-600 mb-8 font-light leading-relaxed">
+                        <li class="flex items-center"><span class="text-[var(--brand-orange)] mr-3">✓</span> Full composite frame with Hydroshield protection</li>
+                        <li class="flex items-center"><span class="text-[var(--brand-orange)] mr-3">✓</span> Low-E glass with argon gas fill</li>
+                        <li class="flex items-center"><span class="text-[var(--brand-orange)] mr-3">✓</span> Stainless steel roller system</li>
+                        <li class="flex items-center"><span class="text-[var(--brand-orange)] mr-3">✓</span> Left-hand or right-hand configurations</li>
+                        <li class="flex items-center"><span class="text-[var(--brand-orange)] mr-3">✓</span> Optional built-in blinds between glass</li>
+                    </ul>
+                    <div class="grid grid-cols-2 gap-6 text-[11px] text-gray-500 mb-8 border-l-2 border-[var(--brand-orange)] pl-4 font-bold uppercase tracking-widest">
+                        <div>
+                            <p class="text-black mb-1">Best for:</p>
+                            <p class="font-normal text-gray-600">Humid climates, coastal homes, direct weather exposure</p>
+                        </div>
+                        <div>
+                            <p class="text-black mb-1">Sizes:</p>
+                            <p class="font-normal text-gray-600">60", 72" (most common), 96"</p>
+                        </div>
+                        <div>
+                            <p class="text-black mb-1">Finishes:</p>
+                            <p class="font-normal text-gray-600">Smooth white, woodgrain interior</p>
+                        </div>
+                        <div>
+                            <p class="text-black mb-1">Glass:</p>
+                            <p class="font-normal text-gray-600">Clear Low-E, built-in blinds, decorative grilles</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-brand inline-block text-white px-10 py-4 rounded-full font-bold transition shadow-lg text-xs uppercase tracking-widest">Shop at The Home Depot →</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="p-8 bg-white/40 rounded-3xl border border-white/60 shadow-inner">
+                        <svg width="260" height="340" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="280" height="380" rx="4" stroke="#1d1d1f" stroke-width="4"/>
+                            <rect x="150" y="20" width="2" height="360" fill="#1d1d1f"/>
+                            <rect x="25" y="25" width="115" height="350" fill="white" fill-opacity="0.3"/>
+                            <rect x="160" y="25" width="115" height="350" fill="white" fill-opacity="0.3"/>
+                            <circle cx="140" cy="200" r="10" stroke="#1d1d1f" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
 
-    // Mobile Menu Toggle
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      // Update icon if you want, but simple toggle is fine
-    });
+            <div class="text-center pt-8">
+                <a href="#" class="inline-block border-2 border-black px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-black hover:text-white transition">Shop all patio doors at The Home Depot →</a>
+            </div>
+        </div>
+    </section>
 
-    // Close mobile menu on link click
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-  </script>
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-6 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center serif">Frequently Asked Questions</h2>
+        <div class="space-y-12">
+            
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: How long do composite patio doors last vs. wood or vinyl?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Wood patio doors in high-moisture environments (coastal, humid climates, heavy rainfall areas) typically require replacement within 5-10 years due to bottom frame rot. Vinyl doors last 10-15 years but often develop warping issues in extreme temperatures. MP Doors composite frames maintain structural integrity for 20+ years in harsh conditions. The composite material is non-porous (ASTM D143 testing: less than 0.1% moisture absorption) and dimensionally stable across temperature extremes. Backed by lifetime warranty on frame materials.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: Why do patio doors stick, and how does composite prevent this?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Three main causes: (1) Frame warping from moisture/heat (50% of cases)—wood absorbs water and swells, vinyl flexes with temperature changes. Composite frames don't absorb moisture and have minimal thermal expansion, maintaining alignment. (2) Debris in track (30%)—affects all doors, solved by cleaning. (3) Roller wear (15%)—MP Doors use stainless steel rollers rated for 50,000+ cycles vs. plastic rollers that fail in 5,000-10,000 cycles.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: How much does a patio door affect energy costs?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Patio doors account for 10-25% of home heating/cooling loss due to large glass area (40+ sq ft for 72" door). Upgrading from standard glass to Low-E with argon reduces this loss by approximately 40%. In moderate climates: $150-300 annual savings. In extreme climates (Phoenix, Minneapolis): $300-500 annual savings. Over 20 years, energy savings alone often exceed the door's initial cost.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: Can I install myself or do I need professional installation?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Honest assessment: Patio doors weigh 250-350 lbs, require precise leveling (within 1/16"), proper flashing, and structural anchoring. Improper installation voids warranty and causes 70% of premature failures. MP Doors' pre-hung system makes DIY more feasible than component brands, but professional installation ($400-600) is recommended insurance on a $1,300-2,000 door. Available through The Home Depot with trained installers.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: What makes MP Doors different from other brands at Home Depot?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Full composite frame system—not just the panel. Most brands use wood or vinyl frames where moisture damage occurs. Composite frames absorb less than 0.1% moisture (wood absorbs 15-20%), don't warp with temperature changes (vinyl's weakness), and don't corrode (steel's problem). Hydroshield technology specifically targets water infiltration points. Lifetime warranty on frame materials. Price-competitive with quality vinyl doors but eliminates the #1 cause of patio door replacement.</p>
+            </div>
+
+            <div class="pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: Where can I buy MP Doors patio doors?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Exclusively through The Home Depot nationwide, in-store and online at HomeDepot.com. Services available: free in-home measurement, professional installation ($400-600), old door haul-away, financing options.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <section id="cta" class="py-32 bg-black text-white px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <img src="MPDoors_Logo.png" alt="MP Doors" class="footer-logo mx-auto mb-12">
+            <h2 class="text-5xl font-bold mb-6 serif">Find MP Doors Patio Doors at The Home Depot</h2>
+            <p class="text-xl text-gray-500 mb-16 uppercase tracking-widest text-xs font-bold">Shop online at HomeDepot.com or visit your local store</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left mb-16">
+                <div>
+                    <h3 class="text-sm font-bold mb-6 border-b border-gray-800 pb-2 uppercase tracking-widest text-[var(--brand-orange)]">Next Steps</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>• Browse models and read reviews: <a href="#" class="text-white hover:text-[var(--brand-orange)] underline">HomeDepot.com/MP-Doors</a></li>
+                        <li>• Schedule free measurement: 1-800-HOME-DEPOT</li>
+                        <li>• Get installation quote: Request in-store or online</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold mb-6 border-b border-gray-800 pb-2 uppercase tracking-widest text-[var(--brand-orange)]">Support</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>• Questions? MP Doors Support: [Phone] | [Email]</li>
+                        <li>• Download <a href="#" class="text-white hover:text-[var(--brand-orange)] underline">Buyer's Guide [PDF]</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-[10px] text-gray-600 leading-relaxed max-w-2xl mx-auto uppercase tracking-widest font-bold">
+                MP Doors manufactures high-performance composite patio doors. Specifications and warranty subject to change. Professional installation recommended for warranty coverage. Installation must comply with local codes and manufacturer specifications. Exclusively through The Home Depot.
+            </p>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-[10px] text-gray-600 bg-black border-t border-gray-900 uppercase tracking-[0.2em] font-bold">
+        &copy; 2026 MP Doors. All rights reserved.
+    </footer>
+
 </body>
 </html>
