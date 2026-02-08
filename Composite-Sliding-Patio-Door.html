@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MP Doors MasterPiece® Composite Sliding Patio Door | 72 in. x 80 in.</title>
+  <meta name="description" content="MP Doors MasterPiece® 72 in. x 80 in. Composite Sliding Patio Door. Waterproof composite frame, Low-E glass, smooth sliding operation, and low-maintenance design for everyday use." />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mp: {
+              orange: '#D49A55',
+              dark: '#1f2933',
+              gray: '#4b5563',
+              light: '#f9fafb',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    html { scroll-behavior: smooth; }
+    /* Hide native details marker for custom styling */
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="font-sans text-mp-dark bg-white antialiased selection:bg-mp-orange selection:text-white">
+
+  <!-- Navbar (Fixed, White Background for Product Page) -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-mp-orange rounded-sm group-hover:bg-orange-600 transition-colors"></div>
+        <span class="text-2xl font-bold tracking-tight text-mp-dark">
+          MP<span class="font-light">DOORS</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div id="nav-links" class="hidden md:flex items-center gap-8 font-medium text-mp-dark">
+        <a href="index.html#features" class="hover:text-mp-orange transition-colors">Features</a>
+        <a href="index.html#technology" class="hover:text-mp-orange transition-colors">Technology</a>
+        <a href="index.html#faq" class="hover:text-mp-orange transition-colors">FAQ</a>
+        <a href="#contact" class="px-5 py-2 bg-mp-orange text-white rounded hover:bg-orange-600 transition-colors">Contact</a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden text-mp-orange">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg p-6 flex flex-col gap-4 md:hidden border-t border-gray-100">
+      <a href="index.html#features" class="text-mp-dark font-medium mobile-link">Features</a>
+      <a href="index.html#technology" class="text-mp-dark font-medium mobile-link">Technology</a>
+      <a href="index.html#faq" class="text-mp-dark font-medium mobile-link">FAQ</a>
+      <a href="#contact" class="text-mp-orange font-bold mobile-link">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="pt-28 pb-4 max-w-7xl mx-auto px-6 md:px-12">
+    <nav class="flex text-sm text-gray-500">
+      <a href="index.html" class="hover:text-mp-orange transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-mp-dark font-medium">Patio Doors</span>
+      <span class="mx-2">/</span>
+      <span class="text-gray-400">MasterPiece Series</span>
+    </nav>
+  </div>
+
+  <!-- Product Showcase Section -->
+  <section class="pb-16 px-6 md:px-12 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+      
+      <!-- Left Column: Product Image Gallery -->
+      <div class="flex flex-col gap-4">
+        <div class="bg-gray-50 border border-gray-100 rounded-lg p-8 md:p-12 flex items-center justify-center aspect-square lg:aspect-auto lg:h-[600px] relative overflow-hidden group">
+          <!-- Main Product Image -->
+          <img 
+            src="https://images.unsplash.com/photo-1595408663813-2d2c7302f37c?q=80&w=2670&auto=format&fit=crop" 
+            alt="MasterPiece Composite Sliding Patio Door" 
+            class="max-w-full max-h-full object-contain shadow-sm transition-transform duration-500 group-hover:scale-105" 
+          />
+          <!-- Badge -->
+          <div class="absolute top-4 left-4 bg-mp-orange text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-sm">
+            Best Seller
+          </div>
+        </div>
+        <!-- Thumbnails (Visual placeholder) -->
+        <div class="grid grid-cols-4 gap-4">
+            <div class="bg-gray-50 border border-mp-orange rounded h-24 flex items-center justify-center cursor-pointer p-2">
+                <img src="https://images.unsplash.com/photo-1595408663813-2d2c7302f37c?q=80&w=2670&auto=format&fit=crop" class="max-h-full max-w-full object-contain" />
+            </div>
+            <div class="bg-gray-50 border border-gray-100 rounded h-24 flex items-center justify-center cursor-pointer hover:border-gray-300 p-2 opacity-60 hover:opacity-100 transition-all">
+                <i data-lucide="zoom-in" class="text-gray-400"></i>
+            </div>
+            <div class="bg-gray-50 border border-gray-100 rounded h-24 flex items-center justify-center cursor-pointer hover:border-gray-300 p-2 opacity-60 hover:opacity-100 transition-all">
+                <i data-lucide="layers" class="text-gray-400"></i>
+            </div>
+            <div class="bg-gray-50 border border-gray-100 rounded h-24 flex items-center justify-center cursor-pointer hover:border-gray-300 p-2 opacity-60 hover:opacity-100 transition-all">
+                <i data-lucide="ruler" class="text-gray-400"></i>
+            </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Product Info -->
+      <div class="flex flex-col">
+        <h1 class="text-3xl md:text-4xl font-serif font-bold text-mp-dark mb-2 leading-tight">MasterPiece® Composite Sliding Patio Door</h1>
+        
+        <div class="flex items-center gap-4 mb-6">
+            <span class="inline-block text-lg text-mp-gray font-medium">72 in. x 80 in.</span>
+            <div class="h-4 w-px bg-gray-300"></div>
+            <span class="text-gray-500">Smooth White</span>
+        </div>
+
+        <!-- Rating Placeholder -->
+        <div class="flex items-center gap-2 mb-6">
+            <div class="flex text-yellow-400 text-sm">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <a href="#reviews" class="text-sm text-mp-orange hover:underline font-medium">4.8 (1,240 Reviews)</a>
+        </div>
+
+        <p class="text-gray-600 leading-relaxed mb-8 text-lg">
+          This best-selling MasterPiece® sliding patio door is designed for homeowners replacing an existing patio door who want smooth operation, moisture resistance, and long-term reliability—without the upkeep of wood.
+        </p>
+
+        <!-- Key Highlights Box -->
+        <div class="bg-mp-light rounded-lg p-6 border border-gray-100 mb-8">
+            <h3 class="text-sm font-bold text-mp-dark uppercase tracking-wide mb-4 flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4 text-mp-orange"></i> Key Features
+            </h3>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <i data-lucide="check" class="w-4 h-4 text-mp-orange mt-0.5 shrink-0"></i>
+                    100% Waterproof Composite
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <i data-lucide="check" class="w-4 h-4 text-mp-orange mt-0.5 shrink-0"></i>
+                    Low-E Argon-Filled Glass
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <i data-lucide="check" class="w-4 h-4 text-mp-orange mt-0.5 shrink-0"></i>
+                    Stainless Steel Rollers
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <i data-lucide="check" class="w-4 h-4 text-mp-orange mt-0.5 shrink-0"></i>
+                    High-Density Insulation
+                </li>
+            </ul>
+        </div>
+
+        <!-- Purchase Actions -->
+        <div class="mt-auto">
+            <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                <button class="flex-1 bg-mp-orange hover:bg-orange-600 text-white font-bold text-lg py-4 px-8 rounded shadow-md hover:shadow-lg transition-all flex justify-center items-center gap-2 group">
+                    Shop at Home Depot
+                    <i data-lucide="external-link" class="w-5 h-5 opacity-90 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <button class="sm:flex-none border-2 border-mp-dark text-mp-dark font-bold text-lg py-4 px-6 rounded hover:bg-gray-50 transition-colors flex justify-center items-center gap-2">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    Specs
+                </button>
+            </div>
+            <p class="text-xs text-gray-400 text-center sm:text-left">
+                *Professional installation services available through retailer.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Tabs / Content -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-mp-dark mb-8">Product Overview</h2>
+            <div class="prose max-w-none text-gray-600">
+                <p class="mb-4">
+                    The MP Doors MasterPiece® Series Sliding Patio Door is engineered to be the last patio door you'll ever need. Unlike traditional wood doors that can rot, warp, and swell when exposed to moisture, the MasterPiece door is constructed from high-performance composite materials that are 100% waterproof.
+                </p>
+                <p>
+                    This 72 in. x 80 in. unit features a smooth white finish that requires no painting (though it is paintable if desired). The system comes pre-hung for easier installation and includes energy-efficient Low-E glass to help maintain indoor temperatures year-round.
+                </p>
+            </div>
+        </div>
+
+        <!-- Why Choose Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 text-mp-orange">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-bold text-mp-dark mb-2">Lifetime Reliability</h3>
+                <p class="text-sm text-gray-600">Composite frame and panels resist rot, rust, and corrosion in any climate.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 text-mp-orange">
+                    <i data-lucide="sun" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-bold text-mp-dark mb-2">Energy Efficient</h3>
+                <p class="text-sm text-gray-600">Double-pane Low-E glass blocks harmful UV rays and reduces heat transfer.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 text-mp-orange">
+                    <i data-lucide="settings" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-bold text-mp-dark mb-2">Easy Operation</h3>
+                <p class="text-sm text-gray-600">Adjustable stainless steel rollers ensure the door glides smoothly for years.</p>
+            </div>
+        </div>
+        
+        <!-- Detailed Specs Grid -->
+        <div class="border-t border-gray-200 pt-12">
+            <h2 class="text-2xl font-bold text-mp-dark mb-8">Specifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-2 text-sm">Dimensions</h4>
+                    <dl class="text-sm text-gray-600 space-y-1">
+                        <div class="flex justify-between"><dt>Rough Opening Height</dt><dd>80 in.</dd></div>
+                        <div class="flex justify-between"><dt>Rough Opening Width</dt><dd>72 in.</dd></div>
+                        <div class="flex justify-between"><dt>Door Size</dt><dd>72 in. x 80 in.</dd></div>
+                        <div class="flex justify-between"><dt>Actual Unit Width</dt><dd>71.5 in.</dd></div>
+                    </dl>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-2 text-sm">Details</h4>
+                    <dl class="text-sm text-gray-600 space-y-1">
+                        <div class="flex justify-between"><dt>Handing</dt><dd>Left-Hand Sliding</dd></div>
+                        <div class="flex justify-between"><dt>Material</dt><dd>Composite</dd></div>
+                        <div class="flex justify-between"><dt>Color/Finish</dt><dd>Smooth White</dd></div>
+                        <div class="flex justify-between"><dt>Glass Type</dt><dd>Low-E, Tempered</dd></div>
+                    </dl>
+                </div>
+                 <div>
+                    <h4 class="font-bold text-gray-900 mb-2 text-sm">Included</h4>
+                    <dl class="text-sm text-gray-600 space-y-1">
+                        <div class="flex justify-between"><dt>Hardware</dt><dd>Yes (Handle Set)</dd></div>
+                        <div class="flex justify-between"><dt>Screen</dt><dd>Yes (Sliding)</dd></div>
+                        <div class="flex justify-between"><dt>Weatherstripping</dt><dd>Yes</dd></div>
+                        <div class="flex justify-between"><dt>Lock</dt><dd>Yes (Dual Point)</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Reused Style) -->
+  <section id="faq" class="py-16 bg-mp-light">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-mp-dark mb-8">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 bg-white transition-colors">
+              <span class="text-mp-dark font-semibold">Will this door swell or rot over time?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-5 h-5"></i></span>
+            </summary>
+            <div class="text-gray-600 p-5 pt-0 leading-relaxed">
+              No. The composite frame and panels do not absorb moisture, helping the door maintain alignment and smooth operation through seasonal weather changes.
+            </div>
+          </details>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 bg-white transition-colors">
+              <span class="text-mp-dark font-semibold">Is this a good option for replacement?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-5 h-5"></i></span>
+            </summary>
+            <div class="text-gray-600 p-5 pt-0 leading-relaxed">
+              Yes. The 72 in. × 80 in. size aligns with standard patio door openings, making it a common and excellent choice for residential replacement projects.
+            </div>
+          </details>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 bg-white transition-colors">
+              <span class="text-mp-dark font-semibold">Where can I buy this patio door?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-5 h-5"></i></span>
+            </summary>
+            <div class="text-gray-600 p-5 pt-0 leading-relaxed">
+              This MasterPiece® sliding patio door is available nationwide through The Home Depot.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-500 py-12 border-t border-gray-800 mt-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2">
+         <div class="w-6 h-6 bg-mp-orange rounded-sm opacity-80"></div>
+         <span class="text-white font-bold tracking-tight">MP<span class="font-light">DOORS</span></span>
+      </div>
+      <div class="text-sm">&copy; 2024 MP Doors. All rights reserved.</div>
+      <div class="flex gap-6 text-sm">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Note: Navbar scroll effect removed for this page to keep it opaque/white for product clarity.
+  </script>
+</body>
+</html>
