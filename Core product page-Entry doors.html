@@ -1,358 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MP Doors Entry Doors | Durable Composite Entry Door Systems</title>
-  <meta name="description" content="MP Doors entry door systems engineered for durability, security, and moisture resistance. Composite frames and fiberglass panels designed for long-term, low-maintenance performance." />
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            mp: {
-              orange: '#D49A55',
-              dark: '#1f2933',
-              gray: '#4b5563',
-              light: '#f9fafb',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-          },
-          animation: {
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP Doors | Entry Doors That Stay Straight, Sealed, and Secure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --apple-bg: #f5f5f7;
+            --apple-text: #1d1d1f;
+            --brand-orange: #f68428;
+            --brand-orange-soft: rgba(246, 132, 40, 0.3);
+            --brand-orange-hover: #e0731d;
         }
-      }
-    }
-  </script>
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  
-  <style>
-    html { scroll-behavior: smooth; }
-    /* Hide native details marker for custom styling */
-    details > summary { list-style: none; }
-    details > summary::-webkit-details-marker { display: none; }
-  </style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: var(--apple-text);
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Liquid Glass Effect --- */
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 12px 40px 0 rgba(31, 38, 135, 0.07),
+                inset 0 0 12px rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-glow {
+            position: relative;
+        }
+        .glass-glow::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.5px; 
+            background: linear-gradient(
+                135deg, 
+                rgba(255,255,255,0.9), 
+                transparent, 
+                var(--brand-orange-soft), 
+                transparent, 
+                rgba(255,255,255,0.7)
+            );
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+        }
+        .pain-point-block {
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .pain-point-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 20px;
+        }
+        .pain-point-block:hover .pain-point-inner {
+            transform: rotateY(180deg);
+        }
+        .pain-point-front, .pain-point-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border-radius: 20px;
+        }
+        .pain-point-front {
+            color: #1d1d1f;
+        }
+        .pain-point-back {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            transform: rotateY(180deg);
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .btn-brand {
+            background-color: var(--brand-orange);
+            color: white;
+            transition: all 0.2s ease;
+        }
+        .btn-brand:hover {
+            background-color: var(--brand-orange-hover);
+            transform: translateY(-1px);
+        }
+        .nav-logo { height: 32px; }
+        .footer-logo { height: 44px; filter: brightness(0) invert(1); }
+    </style>
 </head>
-<body class="font-sans text-mp-dark bg-white antialiased selection:bg-mp-orange selection:text-white">
+<body class="antialiased">
 
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-2 group">
-        <div class="w-8 h-8 bg-mp-orange rounded-sm group-hover:bg-orange-600 transition-colors"></div>
-        <span id="nav-logo-text" class="text-2xl font-bold tracking-tight text-white transition-colors">
-          MP<span class="font-light">DOORS</span>
-        </span>
-      </a>
-
-      <!-- Desktop Nav -->
-      <div id="nav-links" class="hidden md:flex items-center gap-8 font-medium text-white transition-colors">
-        <a href="#features" class="hover:text-mp-orange transition-colors">Features</a>
-        <a href="#technology" class="hover:text-mp-orange transition-colors">Technology</a>
-        <a href="#faq" class="hover:text-mp-orange transition-colors">FAQ</a>
-        <a href="#contact" class="px-5 py-2 bg-mp-orange text-white rounded hover:bg-orange-600 transition-colors">Contact</a>
-      </div>
-
-      <!-- Mobile Toggle -->
-      <button id="mobile-menu-btn" class="md:hidden text-mp-orange">
-        <i data-lucide="menu" class="w-7 h-7"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg p-6 flex flex-col gap-4 md:hidden border-t border-gray-100">
-      <a href="#features" class="text-mp-dark font-medium mobile-link">Features</a>
-      <a href="#technology" class="text-mp-dark font-medium mobile-link">Technology</a>
-      <a href="#faq" class="text-mp-dark font-medium mobile-link">FAQ</a>
-      <a href="#contact" class="text-mp-orange font-bold mobile-link">Contact Us</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="relative w-full h-screen min-h-[600px] flex items-center">
-    <div class="absolute inset-0 z-0">
-      <!-- Image: Elegant Entry Door -->
-      <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=2700&auto=format&fit=crop" alt="Elegant Entry Door" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-black/30"></div>
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-20">
-      <div class="bg-mp-orange/95 backdrop-blur-sm p-8 md:p-12 max-w-2xl text-white shadow-xl animate-fade-in-up">
-        <span class="uppercase tracking-widest text-sm font-bold mb-4 block border-l-4 border-white pl-3">MP Doors Entry Doors</span>
-        <h1 class="text-3xl md:text-5xl lg:text-5xl font-serif font-bold leading-tight mb-6">Entry Door Systems Designed to Resist Water, Wear, and Everyday Abuse</h1>
-        <p class="text-lg md:text-lg opacity-90 mb-8 leading-relaxed">
-          An entry door is opened more than any other door in the home. MP Doors entry door systems are engineered to withstand daily use, moisture exposure, and seasonal movement—without swelling, sticking, or constant maintenance.
-        </p>
-        <button class="group flex items-center gap-2 bg-white text-mp-orange font-bold py-3 px-8 rounded hover:bg-gray-100 transition-colors">
-          View Collections
-          <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Problem Section -->
-  <section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-6">Does Your Entry Door Stick, Draft, or Need Constant Repainting?</h2>
-      <div class="w-24 h-1 bg-mp-orange mx-auto mb-8"></div>
-      <p class="text-lg md:text-xl text-mp-gray leading-relaxed">
-        Many entry door problems appear gradually. Frames absorb moisture, paint begins to peel, and small alignment issues turn into daily frustration. These failures often come from materials that were never designed for long-term exposure to weather.
-      </p>
-    </div>
-  </section>
-
-  <!-- Dark Features (System Approach) -->
-  <section id="technology" class="bg-mp-dark text-white py-24">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-16">
-      <div class="lg:w-1/2">
-        <span class="text-mp-orange font-bold tracking-widest uppercase mb-2 block">System Approach</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-8 font-serif leading-tight">Entry Doors Engineered as Complete Systems</h2>
-        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-          MP Doors entry doors are not assembled from mismatched parts. Panels, frames, hardware, and weather protection are designed as a unified system—so performance remains consistent long after installation.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Composite frames that do not absorb moisture</span></li>
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Durable fiberglass door panels with realistic finishes</span></li>
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Factory-assembled, pre-hung systems</span></li>
-          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Integrated sealing and energy-efficient construction</span></li>
-        </ul>
-      </div>
-      <div class="lg:w-1/2 relative">
-        <div class="relative rounded-lg overflow-hidden shadow-2xl">
-          <!-- Image: Detailed Wood Texture/Door -->
-          <img src="https://images.unsplash.com/photo-1519643381401-22c77e60520e?q=80&w=2669&auto=format&fit=crop" alt="Detailed Door Construction" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" />
-          <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur text-mp-dark p-6 rounded shadow-lg border-l-4 border-mp-orange">
-            <h4 class="font-bold text-lg mb-1">Built for Longevity</h4>
-            <p class="text-sm text-gray-600">High-compression fiberglass resists dents and pests.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Grid -->
-  <section id="features" class="py-24 bg-mp-light">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-4">Core Entry Door System Features</h2>
-        <p class="text-mp-gray max-w-2xl mx-auto">Every element is designed to resist water and wear.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="droplets" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Non-Porous Composite Frames</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Composite frames resist water absorption, helping prevent swelling, rot, and long-term misalignment.</p>
-        </div>
-        <!-- Feature 2 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="shield" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Fiberglass Panels</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">High-compression molded fiberglass panels resist dents, moisture, and pests while maintaining their appearance over time.</p>
-        </div>
-        <!-- Feature 3 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="factory" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Factory-Assembled Precision</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Pre-hung systems are assembled in controlled environments to ensure consistent fit, sealing, and alignment.</p>
-        </div>
-        <!-- Feature 4 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="zap" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Energy-Efficient Construction</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Insulated cores and optional Low-E glass help reduce drafts and support year-round indoor comfort.</p>
-        </div>
-        <!-- Feature 5 -->
-        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
-          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
-            <i data-lucide="hand" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-mp-dark mb-3">Designed for Daily Use</h3>
-          <p class="text-mp-gray leading-relaxed text-sm">Built to withstand frequent opening, closing, and seasonal movement without increased maintenance demands.</p>
-        </div>
-        
-        <!-- CTA Card -->
-        <div class="bg-mp-dark p-8 rounded-lg shadow-sm flex flex-col justify-center items-center text-center">
-           <h3 class="text-xl font-bold text-white mb-3">Find Your Door</h3>
-           <p class="text-gray-300 mb-6 text-sm">Browse our full collection of styles and finishes.</p>
-           <button class="bg-mp-orange text-white px-6 py-2 rounded font-medium hover:bg-orange-600 transition-colors w-full">View Catalog</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-12 text-center">Entry Door FAQs</h2>
-      <div class="space-y-4">
-        <!-- FAQ 1 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Will MP Doors entry doors swell or rot over time?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              No. Composite frames and fiberglass panels do not absorb moisture, helping maintain alignment and appearance through seasonal changes.
+    <!-- Navbar -->
+    <nav class="glass-nav fixed top-0 w-full z-50">
+        <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+            <img src="./MPDoors_Logo.png" alt="MP Doors" class="nav-logo">
+            <div class="flex space-x-8 text-[10px] font-bold uppercase tracking-[0.15em]">
+                <a href="#characteristics" class="hover:text-[var(--brand-orange)] transition">Characteristics</a>
+                <a href="#problems" class="hover:text-[var(--brand-orange)] transition">Solutions</a>
+                <a href="#faq" class="hover:text-[var(--brand-orange)] transition">FAQ</a>
+                <a href="#cta" class="btn-brand px-5 py-2 rounded-full transition shadow-sm">Shop Now</a>
             </div>
-          </details>
         </div>
-        <!-- FAQ 2 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Are MP Doors entry doors suitable for harsh climates?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              Yes. Materials are selected specifically to resist moisture, temperature swings, and long-term exposure.
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient pt-40 pb-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                Entry Doors That Stay <span class="text-gray-400">Straight, Sealed, and Secure.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Fiberglass panels with 100% composite frames. Real wood appearance with superior performance and lifetime durability.
+            </p>
+        </div>
+    </header>
+
+    <!-- Opening Hook -->
+    <section class="py-24 px-6 max-w-5xl mx-auto border-t border-gray-100">
+        <div class="grid md:grid-cols-5 gap-12 items-start">
+            <div class="md:col-span-3">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight serif">Does your front door fit differently in summer than winter?</h2>
+                <p class="text-xl text-gray-600 leading-relaxed mb-6 font-light">
+                    An entry door opens 5-10 times daily, bridges temperature extremes, and faces direct sun. Most doors fail slowly: a draft today, a hard-to-latch lock tomorrow. By the time you see the rot, the damage has been there for years.
+                </p>
             </div>
-          </details>
-        </div>
-        <!-- FAQ 3 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Are these doors energy efficient?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              Many configurations include insulated cores and ENERGY STAR® certified options to help reduce heat transfer.
+            <div class="md:col-span-2 liquid-glass glass-glow p-8 rounded-[24px] shadow-sm">
+                <div class="text-[var(--brand-orange)] font-bold text-xs uppercase tracking-widest mb-4">The MP Standard</div>
+                <p class="text-lg font-medium leading-relaxed text-black">
+                    Our fiberglass panels and <span class="text-[var(--brand-orange)]">full composite frames</span> maintain dimensional stability, keeping your home sealed and secure through decades of use.
+                </p>
             </div>
-          </details>
         </div>
-        <!-- FAQ 4 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Do MP Doors entry doors require frequent maintenance?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              No. Unlike traditional wood doors, composite and fiberglass construction significantly reduces repainting and repair needs.
+    </section>
+
+    <!-- Product Characteristics -->
+    <section id="characteristics" class="py-24 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center justify-between mb-16">
+                <h2 class="text-4xl font-bold serif">Product Characteristics</h2>
+                <div class="h-px flex-grow ml-8 bg-gray-200"></div>
             </div>
-          </details>
-        </div>
-        <!-- FAQ 5 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
-              <span class="text-lg text-mp-dark font-semibold">Where can I purchase MP Doors entry doors?</span>
-              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
-            </summary>
-            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
-              MP Doors entry doors are available nationwide through The Home Depot, including professional measurement and installation services.
+            
+            <div class="space-y-0">
+                <!-- Characteristic 1 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">01</span>
+                        <h3 class="text-2xl font-bold serif">Fiberglass Panel with Deep Embossed Wood Grain</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Compression-molded fiberglass replicates real wood grain texture and shadow lines. Stainable or paintable like wood, but won't rot, split, or delaminate. Available in multiple woodgrain patterns (oak, mahogany, rustic) or smooth white. After 10 years of sun/rain exposure, maintains original appearance without refinishing.</p>
+                </div>
+
+                <!-- Characteristic 2 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">02</span>
+                        <h3 class="text-2xl font-bold serif">Complete Composite Frame System</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Entire frame—jambs, sill, header, brickmold—is composite, not wood. Critical distinction: many "fiberglass doors" have wood frames that absorb moisture and rot. MP Doors composite frames are non-porous, dimensionally stable, and carry lifetime warranty against rot and warping. Wood frame manufacturers cannot offer this.</p>
+                </div>
+
+                <!-- Characteristic 3 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">03</span>
+                        <h3 class="text-2xl font-bold serif">Hydroshield Water Protection</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Multi-layer defense: fiberglass panel sheds water, composite frame won't rot even if moisture contacts it, engineered threshold with drainage channels, high-performance weatherstripping. Essential for coastal homes, covered entries facing prevailing winds, northern climates (freeze-thaw cycling), and high-rainfall regions.</p>
+                </div>
+
+                <!-- Characteristic 4 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">04</span>
+                        <h3 class="text-2xl font-bold serif">Superior Insulation - Polyurethane Foam Core</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">CFC-free rigid polyurethane foam creates thermal barrier. R-value 5.8 vs. solid wood R-value 1.0 = 6x better performance. Eliminates cold drafts near door, reduces HVAC runtime, improves comfort. ENERGY STAR certified for all U.S. climate zones. Door surface temperature stays closer to room temp even when outdoor temps are extreme.</p>
+                </div>
+
+                <!-- Characteristic 5 -->
+                <div class="border-t border-gray-100 py-10">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">05</span>
+                        <h3 class="text-2xl font-bold serif">Multi-Point Locking System</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Locks engage frame at three+ points (top, middle, bottom) vs. single latch of basic locks. Composite frames provide rigidity needed—won't crack or split under force like wood. Multiple locking points mean intruder must defeat several connections simultaneously. Solid brass or stainless steel hardware with anti-pick cylinders.</p>
+                </div>
+
+                <!-- Characteristic 6 -->
+                <div class="border-t border-gray-100 py-10 border-b">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <span class="text-[var(--brand-orange)] font-bold font-mono text-sm">06</span>
+                        <h3 class="text-2xl font-bold serif">Factory-Assembled, Pre-Hung, and Prefinished</h3>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-light">Complete door arrives as single unit: panel hung in frame, hinges installed/adjusted, weatherstripping in place, factory finish applied, hardware pre-installed. Factory assembly in controlled environment ensures consistent quality. Installers complete standard replacements in 3-4 hours. Factory finishes are baked/cured for durability—field finishing cannot match quality.</p>
+                </div>
             </div>
-          </details>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Closing -->
-  <section class="relative py-24 bg-mp-dark text-white overflow-hidden">
-    <div class="absolute top-0 right-0 w-64 h-64 bg-mp-orange opacity-10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-mp-orange opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+    <!-- Pain Points -->
+    <section id="problems" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center serif">Common Problems Solved</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Pain Point 1 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"My door is hard to close in summer, drafty in winter"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Wood expands with humidity (up to 8% width gain), shrinks when dry. Composite has less than 0.2% expansion—maintains fit year-round without seasonal adjustment.</p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">An Entry Door Designed for Long-Term Ownership</h2>
-      <p class="text-xl text-gray-300 mb-10 leading-relaxed">MP Doors entry door systems are built for homeowners who want dependable performance, reduced maintenance, and confidence that the door was engineered to last.</p>
-      <button class="bg-mp-orange hover:bg-white hover:text-mp-orange text-white font-bold py-4 px-10 rounded text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-        Explore Styles at Home Depot
-      </button>
-    </div>
-  </section>
+            <!-- Pain Point 2 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"My door looks worn, needs repainting every few years"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Wood degrades from UV and moisture, requires refinishing every 2-3 years ($200-400 each time). Fiberglass is UV-stable and non-porous. Factory finishes last 10+ years. Maintenance: occasional soap and water cleaning.</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Footer -->
-  <footer class="bg-black text-gray-500 py-12 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-2">
-         <div class="w-6 h-6 bg-mp-orange rounded-sm opacity-80"></div>
-         <span class="text-white font-bold tracking-tight">MP<span class="font-light">DOORS</span></span>
-      </div>
-      <div class="text-sm">&copy; 2024 MP Doors. All rights reserved.</div>
-      <div class="flex gap-6 text-sm">
-        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-        <a href="#" class="hover:text-white transition-colors">Contact</a>
-      </div>
-    </div>
-  </footer>
+            <!-- Pain Point 3 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"I worry about security—frame feels weak when locked"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Wood frames soften from moisture and split at stress points. Composite frames maintain structural rigidity, won't split when deadbolts engage, resist forced entry when properly anchored.</p>
+                    </div>
+                </div>
+            </div>
 
-  <script>
-    // Initialize Icons
-    lucide.createIcons();
+            <!-- Pain Point 4 -->
+            <div class="pain-point-block">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"My steel door is dented and coating is chipping"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Steel dents permanently, conducts heat (causes condensation), coating chips expose rust. Fiberglass won't dent, thermally non-conductive (no condensation), can be refinished if damaged without exposing degradable substrate.</p>
+                    </div>
+                </div>
+            </div>
 
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    const navLogoText = document.getElementById('nav-logo-text');
-    const navLinks = document.getElementById('nav-links');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+            <!-- Pain Point 5 -->
+            <div class="pain-point-block lg:col-span-2">
+                <div class="pain-point-inner">
+                    <div class="pain-point-front liquid-glass glass-glow">
+                        <h3 class="text-xl font-bold italic serif">"I want beautiful wood look without constant maintenance"</h3>
+                    </div>
+                    <div class="pain-point-back">
+                        <p>Wood appearance (deep grain embossing, rich stain colors) without wood's problems. No rot, no splitting, no refinishing. Factory finishes warranted against fading/peeling for years. Visual authenticity from 10 feet—indistinguishable from quality wood.</p>
+                    </div>
+                </div>
+            </div>
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        navbar.classList.add('bg-white', 'shadow-md', 'py-4');
-        navbar.classList.remove('bg-transparent', 'py-6');
-        
-        navLogoText.classList.remove('text-white');
-        navLogoText.classList.add('text-mp-dark');
-        
-        navLinks.classList.remove('text-white');
-        navLinks.classList.add('text-mp-dark');
-      } else {
-        navbar.classList.remove('bg-white', 'shadow-md', 'py-4');
-        navbar.classList.add('bg-transparent', 'py-6');
-        
-        navLogoText.classList.add('text-white');
-        navLogoText.classList.remove('text-mp-dark');
-        
-        navLinks.classList.add('text-white');
-        navLinks.classList.remove('text-mp-dark');
-      }
-    });
+        </div>
+    </section>
 
-    // Mobile Menu Toggle
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    <!-- Product Showcase -->
+    <section class="py-24 bg-[#f5f5f7] px-6">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <h2 class="text-4xl font-bold text-center mb-16 serif">Browse Entry Door Models</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Model 1 -->
+                <div class="liquid-glass glass-glow rounded-[24px] p-8 shadow-sm">
+                    <div class="h-64 bg-white/50 rounded-xl mb-6 flex items-center justify-center border border-gray-200">
+                        <svg width="100" height="180" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="90" height="170" stroke="#d2d2d7" stroke-width="4"/>
+                            <rect x="15" y="15" width="20" height="20" fill="#d2d2d7"/>
+                            <rect x="40" y="15" width="20" height="20" fill="#d2d2d7"/>
+                            <rect x="65" y="15" width="20" height="20" fill="#d2d2d7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 serif">Classic Craftsman: 36 in. x 80 in.</h3>
+                    <p class="text-sm text-gray-500 mb-4">Fiberglass 3-Lite Entry Door</p>
+                    <ul class="text-[10px] text-gray-400 space-y-2 mb-6 uppercase tracking-wider font-bold">
+                        <li>• Fiberglass with woodgrain embossing</li>
+                        <li>• Composite frame with Hydroshield</li>
+                        <li>• Multi-point locking included</li>
+                        <li>• Dark Walnut, Oak, or Smooth White</li>
+                    </ul>
+                    <a href="#" class="block text-center btn-brand py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest">View Model</a>
+                </div>
 
-    // Close mobile menu on link click
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-  </script>
+                <!-- Model 2 -->
+                <div class="liquid-glass glass-glow rounded-[24px] p-8 shadow-md border-2 border-[var(--brand-orange)]">
+                    <div class="h-64 bg-white/50 rounded-xl mb-6 flex items-center justify-center border border-gray-200">
+                        <svg width="100" height="180" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="90" height="170" stroke="#d2d2d7" stroke-width="4"/>
+                            <line x1="5" y1="60" x2="95" y2="60" stroke="#d2d2d7" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 serif">Contemporary: 36 in. x 80 in.</h3>
+                    <p class="text-sm text-gray-500 mb-4">Smooth White Entry Door</p>
+                    <ul class="text-[10px] text-gray-400 space-y-2 mb-6 uppercase tracking-wider font-bold">
+                        <li>• Clean lines, minimal detailing</li>
+                        <li>• Smooth finish (paintable any color)</li>
+                        <li>• Modern hardware available</li>
+                        <li>• Best for modern architecture</li>
+                    </ul>
+                    <a href="#" class="block text-center btn-brand py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest">View Model</a>
+                </div>
+
+                <!-- Model 3 -->
+                <div class="liquid-glass glass-glow rounded-[24px] p-8 shadow-sm">
+                    <div class="h-64 bg-white/50 rounded-xl mb-6 flex items-center justify-center border border-gray-200">
+                        <svg width="100" height="180" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="90" height="170" stroke="#d2d2d7" stroke-width="4"/>
+                            <ellipse cx="50" cy="70" rx="25" ry="40" stroke="#d2d2d7" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 serif">Traditional: 36 in. x 80 in.</h3>
+                    <p class="text-sm text-gray-500 mb-4">Full Oval Lite Entry Door</p>
+                    <ul class="text-[10px] text-gray-400 space-y-2 mb-6 uppercase tracking-wider font-bold">
+                        <li>• Maximum natural light</li>
+                        <li>• Clear, frosted, or privacy glass</li>
+                        <li>• Elegant oval lite configuration</li>
+                        <li>• Lifetime composite frame</li>
+                    </ul>
+                    <a href="#" class="block text-center btn-brand py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest">View Model</a>
+                </div>
+            </div>
+
+            <div class="text-center pt-8">
+                <a href="#" class="inline-block border-2 border-black px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-black hover:text-white transition">Shop all entry doors at The Home Depot →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-6 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center serif">Frequently Asked Questions</h2>
+        <div class="space-y-12">
+            
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: How does fiberglass compare to wood in appearance?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Compression molding captures real wood grain patterns, raised texture, and dimensional shadow lines—not printed or stamped. From normal viewing distance (10+ feet), visually indistinguishable from quality wood. Accepts stain like wood, creating color variation and grain highlighting. Close inspection reveals pattern consistency (fiberglass uses molds, wood has unique grain). Authenticity: 90% of wood's aesthetic with 500% better performance. Wood still best if you accept maintenance requirements; fiberglass if you want wood look without drawbacks.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: Will MP Doors really last 20+ years?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Conservative estimate based on material science: fiberglass used in boats lasts 30-40 years in saltwater (more aggressive than atmospheric exposure). Composite frames are non-porous—don't rot, minimal UV degradation. Real-world: MP Doors from 1990s still in service (25+ years). Warranty data: less than 2% failure rate over 15 years in proper installations. Failures typically hardware-related (handle replacement), not structural. Compare: wood 5-10 years in harsh climates, steel 15-25 years if rust prevented. Lifetime warranty on composite frame backs this up.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: How much energy can I save replacing my old door?</h4>
+                <div class="text-gray-600 leading-relaxed font-light space-y-4">
+                    <p>A: Example scenarios:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Cold climate (Minneapolis):</strong> Old wood door loses $150-250/year in heat. MP Doors reduces to $30-50. Annual savings: $100-200. 20-year savings: $2,000-4,000.</li>
+                        <li><strong>Hot climate (Phoenix):</strong> Old steel door loses $120-180/year cooling. MP Doors reduces to $40-60. Annual savings: $80-120. 20-year savings: $1,600-2,400.</li>
+                        <li><strong>Moderate climate (Atlanta):</strong> Annual savings: $50-75. 20-year savings: $1,000-1,500.</li>
+                    </ul>
+                    <p>Payback period: 7-15 years depending on climate. Plus comfort benefits: fewer drafts, consistent temps, reduced HVAC strain.</p>
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: Inswing vs. outswing—which should I choose?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Determined by codes, architecture, and existing configuration—not just preference. Inswing (most common): Opens INTO home, hinges interior. Required by most residential codes for safety. Better weather protection (rain hits closed face, not hinge gaps). Hinges inaccessible to intruders. Use inswing unless: Outswing: Opens OUT. Better for hurricane zones (wind pushes door into frame), interior space constraints, some ADA applications. Requires special non-removable hinge pins. Check codes before choosing. Cannot easily convert—rough opening is cut for specific handing.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: Can I paint or stain my door later?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Yes. Repainting smooth doors: Clean, light sand (220-grit), optional bonding primer, exterior acrylic latex paint, 2-3 coats. Lasts 5-7 years. Restaining woodgrain: More complex—strip existing stain, clean, sand, apply gel stain, seal with polyurethane. Professional restaining recommended ($300-600). Color limitations: smooth white → any color (easy); dark stain → light stain (requires complete stripping). Repainting/restaining doesn't void structural warranty but may void finish warranty. More flexibility than steel (must prevent rust) or vinyl (cannot be painted).</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: How do I know what size I need?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Standard residential: 36" x 80" door fits 38" x 82" rough opening (most common). Measure if replacing: measure current door panel (not frame) at top/middle/bottom—use smallest. Standard heights: 80 inches (6'8"). If rough opening visible (remove trim): measure stud to stud, bottom plate to header—use smallest dimensions. Non-standard openings require custom doors or opening modification. Older homes (pre-1960s) often have 30" or 32" doors—MP Doors offers these sizes. When in doubt: professional measurement (often free with installation purchase) prevents expensive ordering mistakes.</p>
+            </div>
+
+            <div class="border-b border-gray-100 pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: What warranty coverage comes with MP Doors?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Lifetime warranty (as long as you own home): Fiberglass panel delamination/structural failure, composite frame rot/warping/degradation, material defects. If frame rots (it won't), MP Doors provides replacement regardless of years owned. Limited period: Glass seal (10 years), factory finish (5 years), hardware (1 year). Not covered: Improper installation, normal wear (weatherstripping compression), acts of nature (hurricane damage), cosmetic scratches, glass breakage from impact. Claim process: Register within 30 days, document issue with photos, contact MP Doors, assessment determines coverage. Professional installation strongly recommended for warranty coverage.</p>
+            </div>
+
+            <div class="pb-8">
+                <h4 class="text-lg font-bold mb-4 serif">Q: Where can I buy MP Doors patio doors?</h4>
+                <p class="text-gray-600 leading-relaxed font-light">A: Exclusively through The Home Depot nationwide, in-store and online at HomeDepot.com. Services available: free in-home measurement, professional installation ($400-600), old door haul-away, financing options.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Call to Action / Footer -->
+    <section id="cta" class="py-32 bg-black text-white px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <img src="./MPDoors_Logo.png" alt="MP Doors" class="footer-logo mx-auto mb-12">
+            <h2 class="text-5xl font-bold mb-6 serif">Find MP Doors at The Home Depot</h2>
+            <p class="text-xl text-gray-500 mb-16 uppercase tracking-widest text-xs font-bold">Transform your entrance with fiberglass beauty</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left mb-16">
+                <div>
+                    <h3 class="text-sm font-bold mb-6 border-b border-gray-800 pb-2 uppercase tracking-widest text-[var(--brand-orange)]">Start Your Project</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>• Explore all models: <a href="#" class="text-white hover:text-[var(--brand-orange)] underline">HomeDepot.com/MP-Doors</a></li>
+                        <li>• Visit local store: <a href="#" class="text-white hover:text-[var(--brand-orange)] underline">Store Locator</a></li>
+                        <li>• Schedule measurement: 1-800-HOME-DEPOT</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold mb-6 border-b border-gray-800 pb-2 uppercase tracking-widest text-[var(--brand-orange)]">Resources</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>• Need Help? <a href="#" class="text-white hover:text-[var(--brand-orange)] underline">MP Doors Support</a></li>
+                        <li>• Download <a href="#" class="text-white hover:text-[var(--brand-orange)] underline">Buyer's Guide [PDF]</a></li>
+                        <li>• Watch <a href="#" class="text-white hover:text-[var(--brand-orange)] underline">Installation Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-[10px] text-gray-600 leading-relaxed max-w-2xl mx-auto uppercase tracking-widest font-bold">
+                MP Doors manufactures high-performance fiberglass entry doors. Specifications and warranty subject to change. Professional installation recommended for warranty coverage. Exclusively through The Home Depot.
+            </p>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-[10px] text-gray-600 bg-black border-t border-gray-900 uppercase tracking-[0.2em] font-bold">
+        &copy; 2026 MP Doors. All rights reserved.
+    </footer>
+
 </body>
 </html>
