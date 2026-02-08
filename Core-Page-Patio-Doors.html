@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MP Doors | Engineered Patio Systems</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mp: {
+              orange: '#D49A55',
+              dark: '#1f2933',
+              gray: '#4b5563',
+              light: '#f9fafb',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    html { scroll-behavior: smooth; }
+    /* Hide native details marker for custom styling */
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="font-sans text-mp-dark bg-white antialiased selection:bg-mp-orange selection:text-white">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-mp-orange rounded-sm"></div>
+        <span id="nav-logo-text" class="text-2xl font-bold tracking-tight text-white transition-colors">
+          MP<span class="font-light">DOORS</span>
+        </span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <div id="nav-links" class="hidden md:flex items-center gap-8 font-medium text-white transition-colors">
+        <a href="#features" class="hover:text-mp-orange transition-colors">Features</a>
+        <a href="#technology" class="hover:text-mp-orange transition-colors">Technology</a>
+        <a href="#faq" class="hover:text-mp-orange transition-colors">FAQ</a>
+        <a href="#contact" class="px-5 py-2 bg-mp-orange text-white rounded hover:bg-orange-600 transition-colors">Contact</a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden text-mp-orange">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg p-6 flex flex-col gap-4 md:hidden border-t border-gray-100">
+      <a href="#features" class="text-mp-dark font-medium mobile-link">Features</a>
+      <a href="#technology" class="text-mp-dark font-medium mobile-link">Technology</a>
+      <a href="#faq" class="text-mp-dark font-medium mobile-link">FAQ</a>
+      <a href="#contact" class="text-mp-orange font-bold mobile-link">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative w-full h-screen min-h-[600px] flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2700&auto=format&fit=crop" alt="Modern Patio Door" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/20"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-20">
+      <div class="bg-mp-orange/90 backdrop-blur-sm p-8 md:p-12 max-w-2xl text-white shadow-xl animate-fade-in-up">
+        <span class="uppercase tracking-widest text-sm font-bold mb-4 block border-l-4 border-white pl-3">Engineered Systems</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6">An open door to quality and craftsmanship.</h1>
+        <p class="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">Patio door systems engineered to stay aligned, sealed, and smooth—year after year. Say goodbye to leaks and sticking panels.</p>
+        <button class="group flex items-center gap-2 bg-white text-mp-orange font-bold py-3 px-8 rounded hover:bg-gray-100 transition-colors">
+          Discover the Difference
+          <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-6">Does Your Patio Door Leak, Stick, or Feel Harder to Use Every Year?</h2>
+      <div class="w-24 h-1 bg-mp-orange mx-auto mb-8"></div>
+      <p class="text-lg md:text-xl text-mp-gray leading-relaxed">Most patio door problems don’t appear right away. They develop gradually—after seasons of rain, temperature swings, and everyday use. Water at the sill, uneven sliding, and drafts are usually signs of a door that was never designed as a complete system.</p>
+    </div>
+  </section>
+
+  <!-- Dark Features -->
+  <section id="technology" class="bg-mp-dark text-white py-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-16">
+      <div class="lg:w-1/2">
+        <span class="text-mp-orange font-bold tracking-widest uppercase mb-2 block">The MP Difference</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-8 font-serif leading-tight">Engineered as integrated systems, not collections of parts.</h2>
+        <p class="text-gray-300 text-lg mb-8 leading-relaxed">MP Doors patio doors are distinct because panels, frames, hardware, weather protection, and glass are designed, tested, and assembled to work together—so performance holds up long after installation.</p>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Composite or fiberglass construction where moisture resistance matters most</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Factory-assembled, pre-hung systems</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Designed for large openings and heavy glass panels</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-mp-orange flex-shrink-0 mt-1 w-5 h-5"></i><span class="text-gray-200">Energy-efficient glass options built into the system</span></li>
+        </ul>
+      </div>
+      <div class="lg:w-1/2 relative">
+        <div class="relative rounded-lg overflow-hidden shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop" alt="Detailed Door Construction" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" />
+          <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur text-mp-dark p-6 rounded shadow-lg border-l-4 border-mp-orange">
+            <h4 class="font-bold text-lg mb-1">System Integrity</h4>
+            <p class="text-sm text-gray-600">Pre-hung in factory environments for perfect alignment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="py-24 bg-mp-light">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-4">Core System Features</h2>
+        <p class="text-mp-gray max-w-2xl mx-auto">Every component is selected to contribute to a lifetime of seamless operation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
+          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
+            <i data-lucide="droplets" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mp-dark mb-3">Waterproof Composite Construction</h3>
+          <p class="text-mp-gray leading-relaxed text-sm">Non-porous composite components resist moisture absorption, helping prevent swelling, rot, and long-term frame degradation.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
+          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
+            <i data-lucide="ruler" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mp-dark mb-3">Engineered for Large Openings</h3>
+          <p class="text-mp-gray leading-relaxed text-sm">Designed to maintain alignment and smooth operation across wide spans and heavy insulated glass panels.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
+          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
+            <i data-lucide="move-horizontal" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mp-dark mb-3">Smooth, Controlled Sliding</h3>
+          <p class="text-mp-gray leading-relaxed text-sm">Adjustable stainless-steel rollers and balanced system design support predictable daily operation.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
+          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
+            <i data-lucide="factory" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mp-dark mb-3">Factory-Assembled Systems</h3>
+          <p class="text-mp-gray leading-relaxed text-sm">Built in controlled environments to reduce installation variability and improve long-term consistency.</p>
+        </div>
+        <!-- Feature 5 -->
+        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-mp-orange group">
+          <div class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-mp-orange transition-colors duration-300">
+            <i data-lucide="zap" class="text-mp-orange group-hover:text-white transition-colors duration-300 w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mp-dark mb-3">Energy Performance Built In</h3>
+          <p class="text-mp-gray leading-relaxed text-sm">Low-E glass, Argon gas, and ENERGY STAR® configurations help reduce drafts and heat transfer at large openings.</p>
+        </div>
+        <!-- Feature CTA -->
+        <div class="bg-mp-dark p-8 rounded-lg shadow-sm flex flex-col justify-center items-center text-center">
+           <h3 class="text-xl font-bold text-white mb-3">Ready to upgrade?</h3>
+           <p class="text-gray-300 mb-6 text-sm">Experience the difference of a complete system.</p>
+           <button class="bg-mp-orange text-white px-6 py-2 rounded font-medium hover:bg-orange-600 transition-colors w-full">View Catalog</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-mp-dark mb-12 text-center">Patio Door FAQs</h2>
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
+              <span class="text-lg text-mp-dark font-semibold">Will MP Doors patio doors rot or swell over time?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
+            </summary>
+            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
+              No. Composite construction does not absorb moisture, helping the door maintain alignment and sealing through seasonal changes.
+            </div>
+          </details>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
+              <span class="text-lg text-mp-dark font-semibold">Are MP Doors patio doors energy efficient?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
+            </summary>
+            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
+              Yes. Many configurations include double-pane Low-E glass with Argon gas and ENERGY STAR® certification where applicable.
+            </div>
+          </details>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
+              <span class="text-lg text-mp-dark font-semibold">Are these doors designed for large patio openings?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
+            </summary>
+            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
+              Yes. MP Doors patio systems are engineered to support wide spans and heavy glass panels without sacrificing smooth operation.
+            </div>
+          </details>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
+              <span class="text-lg text-mp-dark font-semibold">Are MP Doors patio doors factory assembled?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
+            </summary>
+            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
+              Yes. Doors are assembled in controlled factory environments and delivered as pre-hung systems to reduce installation risk.
+            </div>
+          </details>
+        </div>
+        <!-- FAQ 5 -->
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 bg-gray-50 group-open:bg-white transition-colors">
+              <span class="text-lg text-mp-dark font-semibold">Where can I purchase MP Doors patio doors?</span>
+              <span class="transition group-open:rotate-45"><i data-lucide="plus" class="text-mp-orange w-6 h-6"></i></span>
+            </summary>
+            <div class="text-mp-gray p-6 pt-0 leading-relaxed border-t border-transparent group-open:border-gray-100">
+              MP Doors patio doors are available nationwide through The Home Depot, including measurement and installation services.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="relative py-24 bg-mp-dark text-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-mp-orange opacity-10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-mp-orange opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Choose a Patio Door Designed for Long-Term Ownership</h2>
+      <p class="text-xl text-gray-300 mb-10 leading-relaxed">MP Doors patio door systems are built for homeowners who value predictable performance, reduced maintenance, and confidence that the system was engineered as one—from the start.</p>
+      <button class="bg-mp-orange hover:bg-white hover:text-mp-orange text-white font-bold py-4 px-10 rounded text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        Explore Styles at Home Depot
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-500 py-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2">
+         <div class="w-6 h-6 bg-mp-orange rounded-sm opacity-80"></div>
+         <span class="text-white font-bold tracking-tight">MP<span class="font-light">DOORS</span></span>
+      </div>
+      <div class="text-sm">&copy; 2024 MP Doors. All rights reserved.</div>
+      <div class="flex gap-6 text-sm">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    const navLogoText = document.getElementById('nav-logo-text');
+    const navLinks = document.getElementById('nav-links');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('bg-white', 'shadow-md', 'py-4');
+        navbar.classList.remove('bg-transparent', 'py-6');
+        
+        navLogoText.classList.remove('text-white');
+        navLogoText.classList.add('text-mp-dark');
+        
+        navLinks.classList.remove('text-white');
+        navLinks.classList.add('text-mp-dark');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-4');
+        navbar.classList.add('bg-transparent', 'py-6');
+        
+        navLogoText.classList.add('text-white');
+        navLogoText.classList.remove('text-mp-dark');
+        
+        navLinks.classList.add('text-white');
+        navLinks.classList.remove('text-mp-dark');
+      }
+    });
+
+    // Mobile Menu Toggle
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      // Update icon if you want, but simple toggle is fine
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
